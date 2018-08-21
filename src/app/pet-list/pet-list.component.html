@@ -1,0 +1,7 @@
+<div class="row">
+  <div class="col-xs-12" *ngFor="let pets of petList;">
+    <app-pet-list-item
+    *ngFor="let pet of pets.pet; let i = index;" [pet]="pet" [index]="i"
+    ></app-pet-list-item>
+  </div>
+</div>

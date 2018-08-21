@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <label style="font-size: 18px; font-weight: bold;">{{ pet.name.$t }}</label>
+      </div>
+      <div class="col-lg-6">
+          <label>({{ pet.animal.$t }})</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <img [src]="pet.media.photos.photo[0].$t" alt="(Animal picture)" class="img-responsive" style="height: 100px; width: 100px;">
+      </div>
+      <div class="col-lg-6">
+          Breed(s): <label *ngIf="pet.breeds.breed.$t; else breedalt">{{ pet.breeds.breed.$t }}</label> 
+          <ng-template #breedalt>
+            <ul>
+              <li *ngFor="let petbreed of pet.breeds.breed">
+                  <label>{{ petbreed.$t }}</label>
+              </li>
+            </ul>
+          </ng-template>
+        </div>
+    </div>
+    <hr>
+  </div>
