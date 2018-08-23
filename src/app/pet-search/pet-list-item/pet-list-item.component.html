@@ -8,9 +8,14 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6" *ngIf="pet.media.photos!==undefined; else photoalt">
         <img [src]="pet.media.photos.photo[0].$t" alt="(Animal picture)" class="img-responsive" style="height: 100px; width: 100px;">
       </div>
+      <ng-template #photoalt>
+        <div>
+        No photos found
+        </div>
+      </ng-template>
       <div class="col-lg-6">
           Breed(s): <label *ngIf="pet.breeds.breed.$t; else breedalt">{{ pet.breeds.breed.$t }}</label> 
           <ng-template #breedalt>
